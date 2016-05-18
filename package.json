@@ -1,0 +1,52 @@
+{
+  "name": "blear.core.attribute",
+  "version": "1.0.0",
+  "description": "DOM 动画",
+  "scripts": {
+    "live": "browser-sync start --config bs-config.js",
+    "test": "node ./node_modules/.bin/karma start --single-run --browsers PhantomJS --reporters progress"
+  },
+  "preferGlobal": false,
+  "bin": {},
+  "engines": {
+    "node": ">= 4.0.0",
+    "iojs": ">= 1.0.0"
+  },
+  "main": "src/index.js",
+  "keywords": [
+    "blear",
+    "core",
+    "selector",
+    "cloudcome",
+    "ydr.me"
+  ],
+  "author": {
+    "name": "cloudcome",
+    "email": "cloudcome@163.com",
+    "url": "http://ydr.me"
+  },
+  "contributors": [],
+  "homepage": "https://github.com/blearjs/blear.core.attribute",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blearjs/blear.core.attribute"
+  },
+  "bugs": {
+    "url": "https://github.com/blearjs/blear.core.attribute/issues"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+   
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-coolie": "^2.0.1",
+    "karma-coverage": "^0.5.5",
+    "karma-coveralls": "^1.1.2",
+    "karma-jasmine": "^0.3.8",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs-prebuilt": "^2.1.7"
+  },
+  "license": "MIT"
+}
