@@ -18,7 +18,7 @@ var access =     require('blear.utils.access');
 var array =      require('blear.utils.array');
 var compatible = require('blear.utils.compatible');
 var json =       require('blear.utils.json');
-var lang =       require('blear.utils.lang');
+var validator =  require('blear.utils.validator');
 var object =     require('blear.utils.object');
 
 var win = window;
@@ -70,7 +70,7 @@ var css = exports.css = function (cssKey, cssVal) {
         _cssVal += '';
 
         // width: 100 => width: 100px
-        if (rePx.test(_cssKey) && lang.isNumber(_cssVal)) {
+        if (rePx.test(_cssKey) && validator.isNumber(_cssVal)) {
             _cssVal += 'px';
         }
 
