@@ -8,18 +8,18 @@
 'use strict';
 
 
-                 require('blear.polyfills.get-computed-style');
-var dataSet =    require('blear.polyfills.data-set');
-var classList =  require('blear.polyfills.class-list');
+require('blear.polyfills.get-computed-style');
+var dataSet = require('blear.polyfills.data-set');
+var classList = require('blear.polyfills.class-list');
 
-var typeis =     require('blear.utils.typeis');
-var string =     require('blear.utils.string');
-var access =     require('blear.utils.access');
-var array =      require('blear.utils.array');
+var typeis = require('blear.utils.typeis');
+var string = require('blear.utils.string');
+var access = require('blear.utils.access');
+var array = require('blear.utils.array');
 var compatible = require('blear.utils.compatible');
-var json =       require('blear.utils.json');
-var validator =  require('blear.utils.validator');
-var object =     require('blear.utils.object');
+var json = require('blear.utils.json');
+var validator = require('blear.utils.validator');
+var object = require('blear.utils.object');
 
 var win = window;
 var doc = win.document;
@@ -36,7 +36,6 @@ var propFix = {
     readonly: "readOnly",
     tabindex: "tabIndex"
 };
-var supportHasAttribute = 'hasAttribute' in bodyEl;
 var supportInnerText = 'innerText' in bodyEl;
 
 
@@ -301,9 +300,8 @@ exports.hasAttr = function (el, attrKey) {
     var args = access.args(arguments).slice(1);
     return access.getSet({
         get: function (attrKey) {
-            return supportHasAttribute ?
-                el.hasAttribute(attrKey) :
-                Boolean(getAttribute(el, attrKey));
+            attrKey = string.separatorize(attrKey);
+            return el.hasAttribute(attrKey);
         },
         setLength: 0
     }, args);
