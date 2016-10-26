@@ -70,6 +70,8 @@ var css = exports.css = function (cssKey, cssVal) {
 
         // width: 100 => width: 100px
         if (rePx.test(_cssKey) && validator.isNumber(_cssVal)) {
+            // 保留2位小数，防止设置的时候失真，导致设置失败
+            _cssVal = (_cssVal * 1).toFixed(2);
             _cssVal += 'px';
         }
 
