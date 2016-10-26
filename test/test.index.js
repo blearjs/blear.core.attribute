@@ -53,9 +53,9 @@ describe('测试文件', function () {
             }
         });
 
-        expect(ret1.width).toEqual('100px');
+        expect(ret1.width).toEqual('100.00px');
         expect(ret2.key).toEqual('width');
-        expect(ret2.val).toEqual('100px');
+        expect(ret2.val).toEqual('100.00px');
         console.log(ret3);
         
         if (ret3.transform || ret3['-webkit-transform']) {
