@@ -138,7 +138,12 @@ var getStyle = function (el, cssKey) {
  * @param cssVal {String} 样式值
  */
 var _setStyle = function (el, cssKey, cssVal) {
-    el.style[cssKey] = cssVal;
+    try {
+        //@fuckie `min-width = none` 等会报错
+        el.style[cssKey] = cssVal;
+    } catch (err) {
+        // ignore
+    }
 };
 
 
