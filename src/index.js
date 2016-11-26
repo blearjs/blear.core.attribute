@@ -8,7 +8,6 @@
 'use strict';
 
 
-require('blear.polyfills.get-computed-style');
 var dataSet = require('blear.polyfills.data-set');
 var classList = require('blear.polyfills.class-list');
 
