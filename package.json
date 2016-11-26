@@ -1,6 +1,6 @@
 {
   "name": "blear.core.attribute",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "DOM 属性",
   "scripts": {
     "live": "browser-sync start --config bs-config.js",
@@ -45,7 +45,6 @@
     "blear.utils.json": "1.x",
     "blear.utils.validator": "1.x",
     "blear.utils.object": "1.x",
-    "blear.polyfills.get-computed-style": "1.x",
     "blear.polyfills.data-set": "1.x",
     "blear.polyfills.class-list": "1.x"
   },
