@@ -35,7 +35,6 @@ var propFix = {
     readonly: "readOnly",
     tabindex: "tabIndex"
 };
-var supportInnerText = 'innerText' in bodyEl;
 
 
 /**
@@ -447,24 +446,18 @@ exports.html = function (el, html) {
 
 /**
  * 设置、获取 text
- * @param el
+ * @param node
  * @param text
  * @returns {*}
  */
-exports.text = function (el, text) {
+exports.text = function (node, text) {
     var args = access.args(arguments).slice(1);
     return access.getSet({
         get: function () {
-            return supportInnerText ? el.innerText : el.textContent;
+            return node.textContent;
         },
         set: function (text) {
-            if (supportInnerText) {
-                el.innerText = text;
-            } else {
-                // @fuckie
-                /* istanbul ignore next */
-                el.textContent = text;
-            }
+            node.textContent = text;
         },
         setLength: 1
     }, args);
