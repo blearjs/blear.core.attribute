@@ -25,6 +25,7 @@ var doc = win.document;
 var bodyEl = doc.body;
 var rePx = /margin|width|height|padding|top|right|bottom|left|translate|font/i;
 var reDeg = /rotate|skew/i;
+var spaceRE = /\s+/;
 var cssExceptions = {
     'float': ['cssFloat', 'styleFloat'] // styleFloat is IE8
 };
@@ -383,7 +384,9 @@ exports.addClass = function (el, className) {
     var args = access.args(arguments).slice(1);
     return access.getSet({
         set: function (className) {
-            classList.add(el, className);
+            array.each(className.trim().split(spaceRE), function (index, className) {
+                classList.add(el, className);
+            });
         },
         setLength: 1
     }, args);
@@ -400,7 +403,9 @@ exports.removeClass = function (el, className) {
     var args = access.args(arguments).slice(1);
     return access.getSet({
         set: function (className) {
-            classList.remove(el, className);
+            array.each(className.trim().split(spaceRE), function (index, className) {
+                classList.remove(el, className);
+            });
         },
         setLength: 1
     }, args);
