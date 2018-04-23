@@ -8,9 +8,6 @@
 'use strict';
 
 
-var dataSet = require('blear.polyfills.data-set');
-var classList = require('blear.polyfills.class-list');
-
 var typeis = require('blear.utils.typeis');
 var string = require('blear.utils.string');
 var access = require('blear.utils.access');
@@ -365,10 +362,10 @@ exports.data = function (el, dataKey, dataVal) {
     var args = access.args(arguments).slice(1);
     return access.getSet({
         get: function (dataKey) {
-            return dataSet.get(el, dataKey);
+            return getDataSet(el, dataKey);
         },
         set: function (dataKey, dataVal) {
-            dataSet.set(el, dataKey, dataVal);
+            setDataSet(el, dataKey, dataVal);
         }
     }, args);
 };
@@ -385,7 +382,7 @@ exports.addClass = function (el, className) {
     return access.getSet({
         set: function (className) {
             array.each(className.trim().split(spaceRE), function (index, className) {
-                classList.add(el, className);
+                el.classList.add(className);
             });
         },
         setLength: 1
@@ -404,7 +401,7 @@ exports.removeClass = function (el, className) {
     return access.getSet({
         set: function (className) {
             array.each(className.trim().split(spaceRE), function (index, className) {
-                classList.remove(el, className);
+                el.classList.remove(className);
             });
         },
         setLength: 1
@@ -422,7 +419,7 @@ exports.hasClass = function (el, className) {
     var args = access.args(arguments).slice(1);
     return access.getSet({
         get: function (className) {
-            return classList.has(el, className);
+            return el.classList.contains(className);
         },
         setLength: 0
     }, args);
@@ -467,3 +464,18 @@ exports.text = function (node, text) {
         setLength: 1
     }, args);
 };
+
+
+// +==================================
+
+function getDataSet(el, dataKey) {
+    dataKey = string.humprize(dataKey);
+    var dataVal = el.dataset[dataKey];
+    return json.safeParse(dataVal) || dataVal;
+}
+
+function setDataSet(el, dataKey, dataVal) {
+    dataKey = string.humprize(dataKey);
+    dataVal = json.safeStringify(dataVal) || String(dataVal);
+    el.dataset[dataKey] = dataVal;
+}

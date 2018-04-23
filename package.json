@@ -43,9 +43,7 @@
     "blear.utils.compatible": "1.x",
     "blear.utils.json": "1.x",
     "blear.utils.validator": "1.x",
-    "blear.utils.object": "1.x",
-    "blear.polyfills.data-set": "1.x",
-    "blear.polyfills.class-list": "1.x"
+    "blear.utils.object": "1.x"
   },
   "peerDependencies": {},
   "devDependencies": {
