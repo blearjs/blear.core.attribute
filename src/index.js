@@ -382,6 +382,10 @@ exports.addClass = function (el, className) {
     return access.getSet({
         set: function (className) {
             array.each(className.trim().split(spaceRE), function (index, className) {
+                if (!className) {
+                    return;
+                }
+
                 el.classList.add(className);
             });
         },
