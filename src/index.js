@@ -65,7 +65,7 @@ var css = exports.css = function (cssKey, cssVal) {
         _cssVal += '';
 
         // width: 100 => width: 100px
-        if (rePx.test(_cssKey) && validator.isNumber(_cssVal)) {
+        if (rePx.test(_cssKey) && validator.isNumerical(_cssVal)) {
             _cssVal += 'px';
         }
 
