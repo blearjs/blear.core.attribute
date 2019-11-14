@@ -405,6 +405,10 @@ exports.removeClass = function (el, className) {
     return access.getSet({
         set: function (className) {
             array.each(className.trim().split(spaceRE), function (index, className) {
+                if (!className) {
+                    return;
+                }
+
                 el.classList.remove(className);
             });
         },
@@ -423,6 +427,10 @@ exports.hasClass = function (el, className) {
     var args = access.args(arguments).slice(1);
     return access.getSet({
         get: function (className) {
+            if (!className) {
+                return false;
+            }
+
             return el.classList.contains(className);
         },
         setLength: 0
