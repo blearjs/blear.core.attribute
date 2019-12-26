@@ -1,6 +1,6 @@
 {
   "name": "blear.core.attribute",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "DOM 属性",
   "scripts": {
     "live": "browser-sync start --config bs-config.js",
