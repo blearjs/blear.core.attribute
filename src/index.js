@@ -240,13 +240,12 @@ var getAttribute = function (el, attrKey) {
 
 
 /**
- * 获取元素属性
+ * 设置元素属性
  * @param el
  * @param attrKey
  * @param attrVal
  */
 var setAttribute = function (el, attrKey, attrVal) {
-    attrKey = string.separatorize(attrKey);
     return el.setAttribute(attrKey, attrVal);
 };
 
